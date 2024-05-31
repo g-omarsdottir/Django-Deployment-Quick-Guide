@@ -8,12 +8,14 @@ Summary of things to consider before deployment
 
 - Procfile <br>
 	- web: gunicorn my_project.wsgi:application<br>
+ 
 <br>
 
 - Run project using gunicorn <br>
 	- gunicorn my_project.wsgi:application <br>
 	- *gunicorn codestar.wsgi:application* <br>
 	- pip3 freeze --local > requirements.txt <br>
+ 
 <br>
 
 - Connect to PostgreSQL database (2 packages) <br>
@@ -25,18 +27,23 @@ Summary of things to consider before deployment
 		- if os.path.isfile('env.py'):<br>
     			- import env<br>
 <br>
+
 - Serve static files <br>
 	- pip3 install whitenoise~=5.3.0 <br>
 	- pip3 freeze --local > requirements.txt<br>
+ 
 <br>
 	- Add to settings.py <br>
  		- MIDDLEWARE = [<br>
     			- ...<br>
     			- "whitenoise.middleware.WhiteNoiseMiddleware",<br>
+       
 <br>
+
 - runtime.txt
 	- Add python version (check documentation from heroku for supported versions, pick the closest one) <br>
 	- (e.g.) python-3.12.3 <br>
+ 
 <br>
 
 - Remember to at final deployment: 
